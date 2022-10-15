@@ -2,14 +2,14 @@ package com.algaworks.algafood.domain.model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.hibernate.type.StringNVarcharType;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Restaurante {
+public class Cidade {
 
     @EqualsAndHashCode.Include
     @Id
@@ -19,10 +19,7 @@ public class Restaurante {
     @Column(nullable = false)
     private String nome;
 
-    @Column(nullable = false)
-    private BigDecimal taxaFrete;
-
     @ManyToOne
-    @JoinColumn(name = "cozinha_id", nullable = false)
-    private Cozinha cozinha;
+    @JoinColumn(nullable = false)
+    private Estado estado;
 }
