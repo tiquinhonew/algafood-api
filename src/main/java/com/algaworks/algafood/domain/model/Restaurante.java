@@ -19,4 +19,7 @@ public class Restaurante {
     private String nome;
 
     private BigDecimal taxaFrete;
+
+    @ManyToOne
+    private Cozinha cozinha;
 }
