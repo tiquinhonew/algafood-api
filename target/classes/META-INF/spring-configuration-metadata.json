@@ -10,14 +10,12 @@
     {
       "name": "notificador.email.host-servidor",
       "type": "java.lang.String",
-      "sourceType": "com.algaworks.algafood.di.notificacao.NotificadorProperties",
-      "defaultValue": "teste"
+      "sourceType": "com.algaworks.algafood.di.notificacao.NotificadorProperties"
     },
     {
       "name": "notificador.email.porta-servidor",
       "type": "java.lang.Integer",
-      "sourceType": "com.algaworks.algafood.di.notificacao.NotificadorProperties",
-      "defaultValue": 25
+      "sourceType": "com.algaworks.algafood.di.notificacao.NotificadorProperties"
     }
   ],
   "hints": []
