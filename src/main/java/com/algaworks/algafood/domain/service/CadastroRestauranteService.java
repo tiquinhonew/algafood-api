@@ -6,6 +6,7 @@ import com.algaworks.algafood.domain.model.Restaurante;
 import com.algaworks.algafood.domain.repository.CozinhaRepository;
 import com.algaworks.algafood.domain.repository.RestauranteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Optional;
 @Service
 public class CadastroRestauranteService {
 
-    @Autowired
+    @Autowired @Lazy
     private RestauranteRepository restauranteRepository;
 
     @Autowired
