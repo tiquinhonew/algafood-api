@@ -52,7 +52,7 @@ public class RestauranteController {
         Restaurante restauranteAtual = cadastroRestauranteService.buscar(restauranteId);
 
         if(restauranteAtual != null){
-            BeanUtils.copyProperties(restaurante, restauranteAtual, "id");
+            BeanUtils.copyProperties(restaurante, restauranteAtual, "id", "formasPagamento", "endereco", "dataCadastro");
             try {
                 cadastroRestauranteService.salvar(restauranteAtual);
             } catch (EntidadeNaoEncontradaException e){
