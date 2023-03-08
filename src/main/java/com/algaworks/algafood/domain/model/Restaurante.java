@@ -16,8 +16,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.NotNull;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import javax.validation.groups.ConvertGroup;
+import javax.validation.groups.Default;
 
+import com.algaworks.algafood.Groups;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -36,14 +40,21 @@ public class Restaurante {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
+//	@NotNull
+//	@NotEmpty
+	@NotBlank
 	@Column(nullable = false)
 	private String nome;
-	
+
+	//@DecimalMin("0")
+	@PositiveOrZero
 	@Column(name = "taxa_frete", nullable = false)
 	private BigDecimal taxaFrete;
-	
+
+	@Valid
+	@NotNull
 //	@JsonIgnore
+	@ConvertGroup(from = Default.class, to = Groups.CozinhaId.class)
 	@ManyToOne //(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cozinha_id", nullable = false)
 	private Cozinha cozinha;
