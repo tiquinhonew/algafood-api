@@ -1,9 +1,5 @@
-<p align="center">
-  <img src="./src/main/resources/static/especialista_spring.png" width="400">
-</p>
-<h2 align="center">
-  API - AlgaFood
-</h2>
+<p align="center"><img src="./src/main/resources/static/especialista_spring.png" width="400"></p>
+<h2 align="center">API - AlgaFood</h2>
 <p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/top/tiquinhonew/algafood-api">
   <a href="https://www.codacy.com/gh/tiquinhonew/algafood-api/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tiquinhonew/algafood-api&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/04ee2f9a924940bba341ae08b03d9163"/></a>
@@ -25,12 +21,14 @@ API desenvolvida no treinamento em back-end, sobre REST APIs com Spring na Algaw
 
 ### :link: Links
 
-- ##### URL
+- #### URL
+
   - API= não hospedada :(
 
 ### :open_file_folder: Recursos
 
-- ##### Postman Collection
+- #### Postman Collection
+
   - [Download](./src/main/resources/static/AlgaFood.postman_collection.json)
 
 | **Recurso** | **GET** | **POST** | **PUT** | **DELETE** |
@@ -42,13 +40,10 @@ API desenvolvida no treinamento em back-end, sobre REST APIs com Spring na Algaw
 
 ### :rocket: Tecnologias
 
-- [JAVA](https://www.java.com)
-  - [Lombok](https://projectlombok.org)
-  - [Flyway](https://flywaydb.org)
-- [Spring](https://spring.io)
-- [MySql](https://www.mysql.com)
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" width="60"/>](https://www.java.com) [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original-wordmark.svg" width="60" />](https://spring.io) [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" width="60"/>](https://www.mysql.com)
 
 ### :memo: Licença
+
 Este projeto está sob a licença MIT. Veja a [licença](https://github.com/tiquinhonew/algafood-api/blob/master/LICENSE) para mais informações.
 
 ---
