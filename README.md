@@ -40,7 +40,15 @@ API desenvolvida no treinamento em back-end, sobre REST APIs com Spring na Algaw
 
 ### :rocket: Tecnologias
 
-[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" width="60"/>](https://www.java.com) [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original-wordmark.svg" width="60" />](https://spring.io) [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" width="60"/>](https://www.mysql.com)
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg" width="60"/>](https://www.java.com) [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original-wordmark.svg" width="60" />](https://spring.io) [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" width="60"/>](https://www.mysql.com) [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original-wordmark.svg" width="60"/>](https://www.docker.com)
+
+### 🏗️ Deploy
+
+Antes de realizar o deploy do projeto, na raiz rode:
+
+```bash
+   docker compose up -d 
+```
 
 ### :memo: Licença
 
