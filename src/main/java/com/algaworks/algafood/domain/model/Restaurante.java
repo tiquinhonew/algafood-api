@@ -49,9 +49,10 @@ public class Restaurante {
 	@Column(nullable = false)
 	private String nome;
 
-	//@DecimalMin("0")
-	@PositiveOrZero
-	@Multiplo(numero=5)
+//	@DecimalMin("0")
+//	@PositiveOrZero
+//	@Multiplo(numero=5)
+	@NotNull
 	@Column(name = "taxa_frete", nullable = false)
 	private BigDecimal taxaFrete;
 

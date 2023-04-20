@@ -48,22 +48,22 @@ public class CadastroCozinhaIT {
 
 	@Test
 	public void deveRetornarStatus200_QuandoConsultarCozinhas() {
-				given()
-					.accept(ContentType.JSON)
-				.when()
-					.get()
-				.then()
-					.statusCode(HttpStatus.OK.value());
+		given()
+			.accept(ContentType.JSON)
+		.when()
+			.get()
+		.then()
+			.statusCode(HttpStatus.OK.value());
 	}
 
 	@Test
 	public void deveConterTodasCozinhas_QuandoConsultarCozinhas() {
-			given()
-				.accept(ContentType.JSON)
-			.when()
-				.get()
-			.then()
-				.body("nome", hasSize(totalCozinhas));
+		given()
+			.accept(ContentType.JSON)
+		.when()
+			.get()
+		.then()
+			.body("nome", hasSize(totalCozinhas));
 	}
 
 	@Test
@@ -72,13 +72,13 @@ public class CadastroCozinhaIT {
 		cozinha.setNome("Chinesa");
 
 		given()
-				.body(cozinha)
-				.contentType(ContentType.JSON)
-				.accept(ContentType.JSON)
-			.when()
-				.post()
-			.then()
-				.statusCode(HttpStatus.CREATED.value());
+			.body(cozinha)
+			.contentType(ContentType.JSON)
+			.accept(ContentType.JSON)
+		.when()
+			.post()
+		.then()
+			.statusCode(HttpStatus.CREATED.value());
 	}
 
 	@Test
