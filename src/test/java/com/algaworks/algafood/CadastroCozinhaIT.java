@@ -13,6 +13,9 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.TestPropertySource;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
@@ -28,6 +31,10 @@ public class CadastroCozinhaIT {
 
 	@Autowired
 	private CozinhaRepository cozinhaRepository;
+
+	private Cozinha cozinhaTest;
+	private int cozinhaIdInexistente;
+	private int totalCozinhas;
 
 	@BeforeEach
 	public void setUp() {
@@ -50,20 +57,22 @@ public class CadastroCozinhaIT {
 	}
 
 	@Test
-	public void deveConter2Cozinhas_QuandoConsultarCozinhas() {
+	public void deveConterTodasCozinhas_QuandoConsultarCozinhas() {
 			given()
 				.accept(ContentType.JSON)
 			.when()
 				.get()
 			.then()
-				.body("nome", hasSize(2))
-				.body("nome", hasItems("Americana", "Tailandesa"));
+				.body("nome", hasSize(totalCozinhas));
 	}
 
 	@Test
 	public void deveRetornarStatus201_QuandoCadastrarCozinha() {
-			given()
-				.body("{ \"nome\": \"Chinesa\" }")
+		Cozinha cozinha = new Cozinha();
+		cozinha.setNome("Chinesa");
+
+		given()
+				.body(cozinha)
 				.contentType(ContentType.JSON)
 				.accept(ContentType.JSON)
 			.when()
@@ -75,19 +84,19 @@ public class CadastroCozinhaIT {
 	@Test
 	public void deveRetornarRespostaEStatusCorretos_QuandoConsultarCozinhaExistente() {
 		given()
-			.pathParams("cozinhaId", 2)
+			.pathParams("cozinhaId", cozinhaTest.getId())
 			.accept(ContentType.JSON)
 		.when()
 			.get("/{cozinhaId}")
 		.then()
 			.statusCode(HttpStatus.OK.value())
-			.body("nome", equalTo("Americana"));
+			.body("nome", equalTo(cozinhaTest.getNome()));
 	}
 
 	@Test
 	public void deveRetornarStatus400_QuandoConsultarCozinhaInexistente() {
 		given()
-			.pathParams("cozinhaId", 100)
+			.pathParams("cozinhaId", cozinhaIdInexistente)
 			.accept(ContentType.JSON)
 		.when()
 			.get("/{cozinhaId}")
@@ -96,13 +105,21 @@ public class CadastroCozinhaIT {
 	}
 
 	private void prepararDados() {
-		Cozinha cozinha1 = new Cozinha();
-		cozinha1.setNome("Tailandesa");
-		cozinhaRepository.save(cozinha1);
 
-		Cozinha cozinha2 = new Cozinha();
-		cozinha2.setNome("Americana");
-		cozinhaRepository.save(cozinha2);
+		String[] cozinhasNomes = {"Tailandesa", "Americana", "Brasileira", "Italiana"};
 
+		List<Cozinha> cozinhas = Arrays.stream(cozinhasNomes)
+				.map(nome -> {
+					Cozinha cozinha = new Cozinha();
+					cozinha.setNome(nome);
+					cozinhaRepository.save(cozinha);
+					return cozinha;
+				}).toList();
+
+		if(cozinhas.size() > 0) {
+			this.cozinhaTest = cozinhas.get(0);
+			this.cozinhaIdInexistente = (cozinhas.size() + 1);
+			this.totalCozinhas = cozinhas.size();
+		}
 	}
 }
