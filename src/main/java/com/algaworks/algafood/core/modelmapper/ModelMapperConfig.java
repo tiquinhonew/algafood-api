@@ -14,7 +14,7 @@ public class ModelMapperConfig {
         ModelMapper modelMapper = new ModelMapper();
 
         modelMapper.createTypeMap(Restaurante.class, RestauranteModel.class)
-                .addMapping(Restaurante::getTaxaFrete, RestauranteModel::setPrecoFrete);
+                .addMapping(Restaurante::getTaxaFrete, RestauranteModel::setTaxaFrete);
 
         return modelMapper;
     }
